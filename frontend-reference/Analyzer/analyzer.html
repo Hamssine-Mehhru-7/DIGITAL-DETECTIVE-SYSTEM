@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#04080f">
+  <title>Digital Detective | Analysis Tool</title>
+  <link rel="stylesheet" href="./analyzer-style.css">
+</head>
+<body>
+  <main class="analyzer-shell min-h-screen bg-[#04080f] text-[#eaf6ff]">
+    <aside class="analyzer-sidebar">
+      <a class="analyzer-brand" href="./dashboard.html" aria-label="Digital Detective home"><span class="analyzer-brand-mark">D</span><span><strong>DIGITAL DETECTIVE</strong><small>SYSTEM / WORKSPACE</small></span></a>
+      <p class="analyzer-nav-label">INVESTIGATION</p>
+      <nav class="analyzer-nav" aria-label="Investigation navigation">
+        <a class="analyzer-nav-link" href="./dashboard.html"><img class="analyzer-icon" src="./analyzer-assets/folder.svg" alt="">Cases<span class="analyzer-count">6</span></a>
+        <a class="analyzer-nav-link active" href="./analyzer.html"><img class="analyzer-icon" src="./analyzer-assets/plus.svg" alt="">New Investigation</a>
+        <a class="analyzer-nav-link" href="./dashboard.html#activity"><img class="analyzer-icon" src="./analyzer-assets/vault.svg" alt="">Evidence Vault</a>
+        <a class="analyzer-nav-link" href="./dashboard.html#activity"><img class="analyzer-icon" src="./analyzer-assets/report.svg" alt="">Reports</a>
+      </nav>
+      <aside class="analyzer-tip"><strong>FOLLOW THE EVIDENCE</strong><p>Keep every finding linked<br>to its investigation case.</p><a href="./dashboard.html#activity">Open evidence vault<img class="analyzer-icon" src="./analyzer-assets/arrow.svg" alt=""></a></aside>
+      <footer class="analyzer-side-footer"><a href="#help"><img class="analyzer-icon" src="./analyzer-assets/help.svg" alt="">Help &amp; documentation</a><p><span></span>ALL SYSTEMS OPERATIONAL</p><small>DDS / SECURE WORKSPACE v.01</small></footer>
+    </aside>
+
+    <section class="analyzer-workspace">
+      <header class="analyzer-header">
+        <div class="analyzer-breadcrumb"><a href="./dashboard.html">Workspace</a><span>/</span><strong>Analysis Tool</strong></div>
+        <label class="analyzer-search"><img class="analyzer-icon" src="./analyzer-assets/search.svg" alt=""><input id="quick-search" placeholder="Quick Search cases, evidence..." aria-label="Quick Search cases and evidence"><kbd>⌘ K</kbd></label>
+        <button class="analyzer-profile" type="button" aria-label="CyberTrace account"><strong>CyberTrace</strong><span>Digital investigator</span><img class="analyzer-icon" src="./analyzer-assets/chevron.svg" alt=""><small><img class="analyzer-icon" src="./analyzer-assets/led-complete.svg" alt="">LIVE / ONLINE</small></button>
+        <span class="analyzer-secure">SECURE SESSION</span>
+      </header>
+
+      <div class="analyzer-content">
+        <section class="analyzer-intro">
+          <div><p class="analyzer-eyebrow">MULTI-FORMAT INTELLIGENCE</p><h1>Analysis Tool</h1><p>Turn suspicious content into a clearer picture.</p></div>
+          <button class="linked-case" id="linked-case" type="button"><img class="analyzer-icon" src="./analyzer-assets/folder-case.svg" alt=""><span><small>DDS-2026-024</small><strong>Suspicious payroll email</strong></span><img class="analyzer-icon" src="./analyzer-assets/chevron.svg" alt=""></button>
+        </section>
+
+        <section class="analyzer-columns">
+          <section class="submission-panel">
+            <div class="analysis-tabs" role="tablist" aria-label="Content type">
+              <button class="analysis-tab selected" role="tab" aria-selected="true" data-mode="email" type="button"><img class="analyzer-icon" src="./analyzer-assets/email.svg" alt="">Email Analysis</button>
+              <button class="analysis-tab" role="tab" aria-selected="false" data-mode="url" type="button"><img class="analyzer-icon" src="./analyzer-assets/url.svg" alt="">URL Scanner</button>
+              <button class="analysis-tab" role="tab" aria-selected="false" data-mode="message" type="button"><img class="analyzer-icon" src="./analyzer-assets/message.svg" alt="">Message Content</button>
+            </div>
+            <div class="submission-body">
+              <h2>New submission</h2>
+              <p class="submission-caption">Add another item while your background scan continues.</p>
+              <div class="input-heading"><div><strong id="input-title">Email content</strong><span id="input-description">Include headers for a more complete analysis.</span></div><button id="clear-content" type="button">Clear</button></div>
+              <div class="content-editor-wrap">
+                <textarea class="content-editor" id="content-editor" aria-label="Content for analysis" spellcheck="false">From: payroll@benefits-review.example
+To: alex.morgan@example.com
+Subject: Payroll confirmation required
+
+Your payroll details need to be confirmed today.
+Review your account using the link below:
+
+hxxps://benefits-review[.]example/verify</textarea>
+                <div class="laser-sweep" aria-hidden="true"><span class="laser-trail"></span><span class="laser-line"></span><i></i><i></i></div>
+                <span class="editor-meta" id="editor-meta">8 lines · Plain text</span>
+              </div>
+              <div class="upload-zone" id="upload-zone">
+                <input id="file-input" type="file" accept=".eml,.txt,text/plain,message/rfc822" hidden>
+                <span class="upload-symbol"><img class="analyzer-icon" src="./analyzer-assets/upload.svg" alt=""></span>
+                <span class="upload-copy"><strong id="upload-name">Or drag an email here</strong><small>EML or TXT · up to 10 MB</small></span>
+                <button id="browse-files" type="button">Browse files</button>
+              </div>
+              <p class="analyzer-notice" id="analyzer-notice" role="status" hidden></p>
+              <p class="submission-footnote">Paste content or upload a file — one source per submission.</p>
+              <button class="run-analysis" id="run-analysis" type="button"><img class="analyzer-icon" src="./analyzer-assets/scan.svg" alt="">Run System Analysis</button>
+            </div>
+          </section>
+
+          <aside class="analysis-sidepanels">
+            <section class="progress-panel">
+              <header><span>BACKGROUND ANALYSIS</span><strong><i></i>LIVE</strong></header>
+              <div class="current-file"><img class="analyzer-icon" src="./analyzer-assets/file.svg" alt=""><span><strong id="current-file-name">payroll-notice.eml</strong><small id="current-file-type">Email Analysis · DDS-2026-024</small></span></div>
+              <div class="progress-summary"><strong id="progress-value">64%</strong><span id="progress-label">Analysis in progress</span></div>
+              <div class="progress-track" id="progress-track" role="progressbar" aria-label="Analysis progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="64"><div class="progress-fill" id="progress-fill" style="width:64%"><span class="progress-highlight"></span><span class="progress-wave"></span></div></div>
+              <p class="progress-caption" id="progress-caption">Inspecting links &amp; language patterns...</p>
+              <div class="analysis-steps">
+                <div class="analysis-step"><span class="step-icon"><img class="analyzer-icon" src="./analyzer-assets/check.svg" alt=""></span><span>Content parsed</span><strong class="step-complete"><img class="analyzer-icon" src="./analyzer-assets/led-complete.svg" alt="">COMPLETE</strong></div>
+                <div class="analysis-step"><span class="step-icon"><img class="analyzer-icon" src="./analyzer-assets/check.svg" alt=""></span><span>Headers inspected</span><strong class="step-complete"><img class="analyzer-icon" src="./analyzer-assets/led-complete.svg" alt="">COMPLETE</strong></div>
+                <div class="analysis-step"><span class="step-icon step-active"><img class="analyzer-icon" src="./analyzer-assets/scan-progress.svg" alt=""></span><span>Links &amp; language</span><strong class="step-scanning" id="scan-status"><img class="analyzer-icon" src="./analyzer-assets/led-scanning.svg" alt="">SCANNING</strong></div>
+                <div class="analysis-step queued"><span class="step-icon"><img class="analyzer-icon" src="./analyzer-assets/clock.svg" alt=""></span><span>Findings summary</span><strong id="findings-status">Queued</strong></div>
+              </div>
+              <footer id="progress-footer">You can prepare another submission.</footer>
+            </section>
+
+            <section class="safe-panel"><header><span><img class="analyzer-icon" src="./analyzer-assets/shield.svg" alt=""></span><h2>Handle content safely</h2></header><ul><li><strong>Keep suspicious links inert.</strong><p>Review destinations without opening them.</p></li><li><strong>Preserve the original source.</strong><p>Use full headers when they are available.</p></li><li><strong>Keep investigator judgment.</strong><p>An assessment is not definitive proof.</p></li></ul></section>
+          </aside>
+        </section>
+
+        <footer class="analyzer-footer"><div><img class="analyzer-icon" src="./analyzer-assets/shield-footer.svg" alt=""><span>New analyses will be linked to DDS-2026-024.<small>Review findings before saving them as evidence.</small></span></div><div class="analyzer-footer-meta"><span>EXAMPLE CONTENT / ANALYSIS WORKSPACE</span><span>DIGITAL DETECTIVE SYSTEM</span></div></footer>
+      </div>
+    </section>
+  </main>
+  <script>
+    (() => {
+      const samples = {
+        email: 'From: payroll@benefits-review.example\nTo: alex.morgan@example.com\nSubject: Payroll confirmation required\n\nYour payroll details need to be confirmed today.\nReview your account using the link below:\n\nhxxps://benefits-review[.]example/verify',
+        url: 'hxxps://benefits-review[.]example/verify\n\nSubmitted URL is normalized and scanned without opening the destination.',
+        message: 'Your payroll details need to be confirmed today. Review your account using the link below: hxxps://benefits-review[.]example/verify'
+      };
+      const descriptions = {
+        email: ['Email content', 'Include headers for a more complete analysis.'],
+        url: ['URL to inspect', 'Keep suspicious destinations inert. Do not open submitted links.'],
+        message: ['Message content', 'Paste the suspicious message exactly as received.']
+      };
+      let mode = 'email';
+      let progress = 64;
+      let timer = null;
+      let fileName = 'payroll-notice.eml';
+      const editor = document.querySelector('#content-editor');
+      const fileInput = document.querySelector('#file-input');
+      const zone = document.querySelector('#upload-zone');
+      const notice = document.querySelector('#analyzer-notice');
+      const setNotice = text => { notice.textContent = text; notice.hidden = !text; };
+      const renderProgress = () => {
+        const complete = progress >= 100;
+        document.querySelector('#progress-value').textContent = `${progress}%`;
+        document.querySelector('#progress-track').setAttribute('aria-valuenow', progress);
+        document.querySelector('#progress-fill').style.width = `${progress}%`;
+        document.querySelector('#progress-label').textContent = complete ? 'Analysis complete' : 'Analysis in progress';
+        document.querySelector('#progress-caption').textContent = complete ? 'Threat indicators and language patterns reviewed.' : 'Inspecting links & language patterns...';
+        document.querySelector('#progress-footer').textContent = complete ? 'Review findings before saving them as evidence.' : 'You can prepare another submission.';
+        document.querySelector('#scan-status').innerHTML = `<img class="analyzer-icon" src="./analyzer-assets/${complete ? 'led-complete.svg' : 'led-scanning.svg'}" alt="">${complete ? 'COMPLETE' : 'SCANNING'}`;
+        document.querySelector('#scan-status').className = complete ? 'step-complete' : 'step-scanning';
+        document.querySelector('#findings-status').textContent = complete ? 'Ready' : 'Queued';
+      };
+      const startProgress = () => {
+        clearTimeout(timer);
+        if (progress >= 100) return;
+        timer = setTimeout(() => { progress = Math.min(progress + 1, 100); renderProgress(); startProgress(); }, 750);
+      };
+      const updateEditorMeta = () => { document.querySelector('#editor-meta').textContent = `${editor.value.split('\n').length} lines · Plain text`; };
+      const setFileName = name => {
+        fileName = name;
+        document.querySelector('#upload-name').textContent = name === 'payroll-notice.eml' ? 'Or drag an email here' : name;
+        document.querySelector('#current-file-name').textContent = name;
+        document.querySelector('#current-file-type').textContent = `${mode === 'email' ? 'Email Analysis' : mode === 'url' ? 'URL Scanner' : 'Message Content'} · DDS-2026-024`;
+      };
+      const loadFile = file => {
+        if (!file) return;
+        if (!/\.(eml|txt)$/i.test(file.name)) { setNotice('Choose an EML or TXT file to continue.'); return; }
+        if (file.size > 10 * 1024 * 1024) { setNotice('This file is larger than the 10 MB limit.'); return; }
+        const reader = new FileReader();
+        reader.onload = () => { editor.value = String(reader.result || ''); setFileName(file.name); updateEditorMeta(); setNotice(''); progress = 0; renderProgress(); clearTimeout(timer); };
+        reader.onerror = () => setNotice('The selected file could not be read.');
+        reader.readAsText(file);
+      };
+      document.querySelectorAll('.analysis-tab').forEach(tab => tab.addEventListener('click', () => {
+        mode = tab.dataset.mode;
+        document.querySelectorAll('.analysis-tab').forEach(item => { const selected = item === tab; item.classList.toggle('selected', selected); item.setAttribute('aria-selected', String(selected)); });
+        editor.value = samples[mode];
+        document.querySelector('#input-title').textContent = descriptions[mode][0];
+        document.querySelector('#input-description').textContent = descriptions[mode][1];
+        setFileName(mode === 'email' ? 'payroll-notice.eml' : mode === 'url' ? 'url-submission.txt' : 'message-submission.txt');
+        updateEditorMeta(); setNotice('');
+      }));
+      editor.addEventListener('input', updateEditorMeta);
+      document.querySelector('#clear-content').addEventListener('click', () => { editor.value = ''; setFileName('No file selected'); progress = 0; renderProgress(); clearTimeout(timer); setNotice(''); updateEditorMeta(); });
+      document.querySelector('#browse-files').addEventListener('click', () => fileInput.click());
+      fileInput.addEventListener('change', event => loadFile(event.target.files[0]));
+      zone.addEventListener('dragover', event => { event.preventDefault(); zone.classList.add('is-dragging'); });
+      zone.addEventListener('dragleave', () => zone.classList.remove('is-dragging'));
+      zone.addEventListener('drop', event => { event.preventDefault(); zone.classList.remove('is-dragging'); loadFile(event.dataTransfer.files[0]); });
+      document.querySelector('#run-analysis').addEventListener('click', () => {
+        if (!editor.value.trim()) { setNotice('Add content or choose an EML/TXT file before starting analysis.'); return; }
+        setNotice(''); progress = 0; renderProgress();
+        setFileName(mode === 'email' ? 'email-submission.eml' : mode === 'url' ? 'url-submission.txt' : 'message-submission.txt');
+        startProgress();
+      });
+      document.querySelector('#linked-case').addEventListener('click', () => setNotice('This analysis will be linked to DDS-2026-024.'));
+      document.addEventListener('keydown', event => { if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') { event.preventDefault(); document.querySelector('#quick-search').focus(); } });
+      renderProgress(); startProgress();
+    })();
+  </script>
+</body>
+</html>

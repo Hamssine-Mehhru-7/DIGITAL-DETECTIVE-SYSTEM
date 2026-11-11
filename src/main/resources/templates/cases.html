@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cases | Digital Detective</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <style>
+        .cases-container {
+            max-width: 950px;
+            margin: 45px auto;
+            padding: 25px;
+        }
+        .case-card {
+            background: #111d32;
+            border: 1px solid #263751;
+            border-radius: 12px;
+            padding: 22px;
+            margin: 18px 0;
+            white-space: pre-line;
+            color: #dce5f2;
+        }
+        .case-card h3 { color: #70a2ff; }
+        .case-actions a {
+            display: inline-block;
+            padding: 12px 18px;
+            background: #3978f6;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-right: 10px;
+        }
+        .success { color: #75dfa4; }
+    </style>
+</head>
+<body>
+
+<div class="cases-container">
+
+    <h1>My Investigation Cases</h1>
+    <p>View your previously created investigations.</p>
+
+    <p class="success" th:if="${param.created}">
+        Case created successfully!
+    </p>
+
+    <p th:if="${error}" th:text="${error}"></p>
+
+    <div class="case-actions">
+        <a th:href="@{/cases/new}">+ Create New Case</a>
+        <a th:href="@{/dashboard}">Dashboard</a>
+    </div>
+
+    <div th:if="${cases != null and !cases.isEmpty()}">
+
+        <div class="case-card" th:each="item, stat : ${cases}">
+            <h3 th:text="'Investigation ' + ${stat.count}"></h3>
+            <p th:text="${item}"></p>
+        </div>
+
+    </div>
+
+    <div th:if="${cases != null and cases.isEmpty()}">
+        <p>No cases found. Create your first investigation!</p>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#04080f">
+  <title>Digital Detective | Detailed Case Report</title>
+  <link rel="stylesheet" href="/report-style.css">
+</head>
+<body>
+  <main class="report-shell min-h-screen bg-[#04080f] text-[#eaf6ff]">
+    <aside class="report-sidebar">
+      <a class="report-brand" href="/dashboard" aria-label="Digital Detective home"><span class="report-brand-mark">D</span><span><strong>DIGITAL DETECTIVE</strong><small>SYSTEM / WORKSPACE</small></span></a>
+      <p class="report-nav-label">INVESTIGATION</p>
+      <nav class="report-nav" aria-label="Investigation navigation">
+        <a class="report-nav-link" href="/dashboard#cases"><img class="report-icon" src="/report-assets/folder.svg" alt="">Cases</a>
+        <a class="report-nav-link" href="/analysis-workspace"><img class="report-icon" src="/report-assets/plus.svg" alt="">New Investigation</a>
+        <a class="report-nav-link" href="/dashboard#activity"><img class="report-icon" src="/report-assets/vault.svg" alt="">Evidence Vault</a>
+        <a class="report-nav-link active" href="/report-workspace"><img class="report-icon" src="/report-assets/report.svg" alt="">Reports</a>
+      </nav>
+      <aside class="report-tip"><strong>FOLLOW THE EVIDENCE</strong><p>Keep every finding linked<br>to its investigation case.</p><a href="/dashboard#activity">Open evidence vault<img class="report-icon" src="/report-assets/arrow.svg" alt=""></a></aside>
+      <footer class="report-side-footer"><a href="#help"><img class="report-icon" src="/report-assets/help.svg" alt="">Help &amp; documentation</a><p><span></span>ALL SYSTEMS OPERATIONAL</p><small>DDS / SECURE WORKSPACE v.01</small></footer>
+    </aside>
+
+    <section class="report-workspace">
+      <header class="report-topbar">
+        <div class="report-breadcrumb"><a href="/dashboard">Case file</a><span>/</span><strong>Detailed report</strong></div>
+        <label class="report-search"><img class="report-icon" src="/report-assets/search.svg" alt=""><input id="quick-search" placeholder="Quick Search cases, evidence..." aria-label="Quick Search cases and evidence"><kbd>⌘ K</kbd></label>
+        <button class="report-profile" type="button" aria-label="CyberTrace account"><strong>CyberTrace</strong><span>Digital investigator</span><img class="report-icon" src="/report-assets/chevron.svg" alt=""></button>
+        <span class="report-secure">SECURE SESSION</span>
+      </header>
+
+      <div class="report-content">
+        <section class="report-heading" id="case-details">
+          <div class="report-title-block"><p class="report-case-id">CASE / DDS-2026-024</p><span class="report-status">Active</span><h1>Suspicious payroll email</h1><p>Created 09 Nov 2026 · 09:42 UTC</p><small>Investigator: Alex Morgan</small></div>
+          <div class="report-actions">
+            <div class="report-action-row"><button class="save-evidence" id="save-evidence" type="button"><img class="report-icon" src="/report-assets/save.svg" alt="">Save Evidence</button><button class="export-report" id="export-data" type="button"><img class="report-icon" src="/report-assets/download.svg" alt="">Export Data</button><button class="print-report" id="print-report" type="button">Print Report</button></div>
+            <label class="pdf-toggle-row"><span>Export all 18 saved evidence items</span><strong>PDF</strong><input id="pdf-toggle" type="checkbox" checked aria-label="Include PDF report"><i aria-hidden="true"></i></label>
+            <span class="report-kind">DETAILED CASE REPORT</span>
+          </div>
+        </section>
+
+        <section class="case-details-grid" aria-label="Case details">
+          <article class="summary-card"><span>Saved evidence</span><strong>18</strong><i><img class="report-icon" src="/report-assets/vault-summary.svg" alt=""></i></article>
+          <article class="summary-card"><span>Emails</span><strong>8</strong><i><img class="report-icon" src="/report-assets/email.svg" alt=""></i></article>
+          <article class="summary-card"><span>URLs</span><strong>6</strong><i><img class="report-icon" src="/report-assets/url.svg" alt=""></i></article>
+          <article class="summary-card"><span>Messages</span><strong>4</strong><i><img class="report-icon" src="/report-assets/message.svg" alt=""></i></article>
+        </section>
+
+        <section class="evidence-panel" aria-label="Evidence summaries">
+          <header class="evidence-header"><div class="evidence-title"><h2>Evidence List</h2><span>18</span><p>Preserved sources and their associated findings.</p></div><div class="evidence-controls"><label class="type-filter"><select id="type-filter" aria-label="Filter evidence type"><option>All types</option><option>Email</option><option>URL</option><option>Message</option></select><img class="report-icon" src="/report-assets/down.svg" alt=""></label><label class="evidence-search"><img class="report-icon" src="/report-assets/search-evidence.svg" alt=""><input id="evidence-search" placeholder="Find evidence..." aria-label="Find evidence"></label></div></header>
+          <div class="evidence-table-wrap"><table class="evidence-table"><thead><tr><th>Evidence ID</th><th>Type</th><th>Findings summary</th><th>Evidence signal</th><th>Saved at / UTC</th><th><span class="sr-only">Open evidence</span></th></tr></thead><tbody id="evidence-rows"></tbody></table></div>
+          <footer class="evidence-footer"><span id="evidence-range">Showing 1–6 of 18 evidence items</span><div class="pagination" id="pagination"><span>Page</span></div></footer>
+        </section>
+
+        <section class="report-lower-grid">
+          <article class="notes-panel"><header><h2>Investigator notes</h2><span id="notes-status">Working assessment</span></header><label class="notes-input-label" for="investigator-notes">Investigator assessment</label><textarea id="investigator-notes" aria-label="Investigator notes">The saved items repeatedly request payroll verification and reference external destinations. These observations warrant further review. Confirm the sender through a known internal channel before classifying the incident or taking action.</textarea><footer><span>Alex Morgan · Updated 09 Nov 2026, 10:31 UTC</span><button id="save-notes" type="button">Save notes</button></footer></article>
+          <article class="scope-panel"><h2>Report scope</h2><p>All 18 saved items · not just this page</p><div class="scope-grid" id="scope-grid"></div><div class="scope-divider"></div><div class="scope-footer"><span id="output-format">OUTPUT / PDF</span><select id="final-verdict" aria-label="Final verdict status"><option>Working assessment</option><option>Needs further review</option><option>Confirmed threat</option><option>Benign / false positive</option></select></div></article>
+        </section>
+
+        <section class="verdict-panel"><div><p class="report-case-id">FINAL VERDICT LOG</p><h2 id="verdict-heading">Assessment pending review</h2><p id="verdict-summary">The saved items repeatedly request payroll verification and reference external destinations. These observations warrant further review. Confirm the sender through a known internal channel before classifying the incident or taking action.</p></div><span class="verdict-marker"><i></i>DRAFT / NOT YET FINAL</span></section>
+        <footer class="report-footer"><span>EXAMPLE CASE DATA / TIMESTAMPS IN UTC</span><span>PRIVATE INVESTIGATION WORKSPACE</span></footer>
+      </div>
+    </section>
+    <div class="report-toast" id="report-toast" role="status" hidden></div>
+  </main>
+  <script>
+    (() => {
+      const evidence = [
+        {id:'EVD-024-001',type:'Email',summary:'Reply-To address differs from the sender domain.',source:'payroll-notice.eml',saved:'09 Nov · 10:03',signal:'VERIFIED'},
+        {id:'EVD-024-002',type:'Email',summary:'Urgent payroll verification request with an external link.',source:'payroll-followup.txt',saved:'09 Nov · 10:08',signal:'VERIFIED'},
+        {id:'EVD-024-003',type:'URL',summary:'Destination domain does not match the claimed payroll service.',source:'benefits-review[.]example/verify',saved:'09 Nov · 10:11',signal:'THREAT DETECTED'},
+        {id:'EVD-024-004',type:'URL',summary:'Redirect chain leads to a separate sign-in destination.',source:'account-review[.]example/login',saved:'09 Nov · 10:14',signal:'THREAT DETECTED'},
+        {id:'EVD-024-005',type:'Message',summary:'Sender requests a one-time authentication code.',source:'Payroll support conversation · Message 04',saved:'09 Nov · 10:19',signal:'THREAT DETECTED'},
+        {id:'EVD-024-006',type:'Message',summary:'Instructions ask the recipient to bypass verification.',source:'Payroll support conversation · Message 07',saved:'09 Nov · 10:23',signal:'THREAT DETECTED'},
+        {id:'EVD-024-007',type:'Email',summary:'Display name does not match the authenticated sender.',source:'payroll-confirmation.eml',saved:'09 Nov · 10:28',signal:'VERIFIED'},
+        {id:'EVD-024-008',type:'Email',summary:'Message contains an unusually short response deadline.',source:'benefits-alert.eml',saved:'09 Nov · 10:32',signal:'VERIFIED'},
+        {id:'EVD-024-009',type:'Email',summary:'Sender domain was registered recently.',source:'payroll-update.eml',saved:'09 Nov · 10:37',signal:'THREAT DETECTED'},
+        {id:'EVD-024-010',type:'Email',summary:'Reply chain references an unrecognized payroll portal.',source:'payroll-thread.eml',saved:'09 Nov · 10:41',signal:'THREAT DETECTED'},
+        {id:'EVD-024-011',type:'Email',summary:'Authentication results do not align with the visible sender.',source:'payroll-reminder.eml',saved:'09 Nov · 10:46',signal:'VERIFIED'},
+        {id:'EVD-024-012',type:'Email',summary:'Attachment name imitates a payroll statement.',source:'statement-review.eml',saved:'09 Nov · 10:51',signal:'THREAT DETECTED'},
+        {id:'EVD-024-013',type:'URL',summary:'Landing page requests credentials unrelated to payroll.',source:'secure-benefits[.]example/access',saved:'09 Nov · 10:56',signal:'THREAT DETECTED'},
+        {id:'EVD-024-014',type:'URL',summary:'Certificate details do not match the claimed service.',source:'staff-pay[.]example/signin',saved:'09 Nov · 11:02',signal:'THREAT DETECTED'},
+        {id:'EVD-024-015',type:'URL',summary:'URL path contains a misleading organization identifier.',source:'company-payroll[.]example/auth',saved:'09 Nov · 11:07',signal:'VERIFIED'},
+        {id:'EVD-024-016',type:'URL',summary:'Redirect parameters lead to an unrelated host.',source:'payroll-check[.]example/continue',saved:'09 Nov · 11:12',signal:'THREAT DETECTED'},
+        {id:'EVD-024-017',type:'Message',summary:'Follow-up message repeats the request for a sign-in code.',source:'Payroll support conversation · Message 11',saved:'09 Nov · 11:18',signal:'THREAT DETECTED'},
+        {id:'EVD-024-018',type:'Message',summary:'Contact details direct the recipient away from internal support.',source:'Payroll support conversation · Message 13',saved:'09 Nov · 11:24',signal:'THREAT DETECTED'}
+      ];
+      const icons={Email:'email-small.svg',URL:'url-small.svg',Message:'message-small.svg'};
+      const scopes=['Case details','Evidence sources','Findings summaries','Investigator notes','Final verdict'];
+      const scopeState=Object.fromEntries(scopes.map(item=>[item,true]));
+      let page=1, toastTimer;
+      const rows=document.querySelector('#evidence-rows');
+      const filter=document.querySelector('#type-filter');
+      const search=document.querySelector('#evidence-search');
+      const toast=document.querySelector('#report-toast');
+      const notify=message=>{toast.textContent=message;toast.hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.hidden=true,2600)};
+      const filtered=()=>{const term=search.value.trim().toLowerCase();return evidence.filter(item=>(filter.value==='All types'||item.type===filter.value)&&(!term||`${item.id} ${item.type} ${item.summary} ${item.source}`.toLowerCase().includes(term)))};
+      const renderPagination=(pages)=>{
+        const nav=document.querySelector('#pagination');nav.replaceChildren();
+        const label=document.createElement('span');label.textContent='Page';nav.append(label);
+        const addButton=(text,aria,disabled,handler,current=false)=>{const button=document.createElement('button');button.type='button';button.textContent=text;button.setAttribute('aria-label',aria);button.disabled=disabled;if(current){button.className='current';button.setAttribute('aria-current','page')}button.addEventListener('click',handler);nav.append(button)};
+        addButton('‹','Previous evidence page',page<=1,()=>{page--;render()});
+        for(let number=1;number<=pages;number++)addButton(String(number),`Page ${number}`,false,()=>{page=number;render()},page===number);
+        addButton('›','Next evidence page',page>=pages,()=>{page++;render()});
+      };
+      const render=()=>{
+        const items=filtered(),pages=Math.max(1,Math.ceil(items.length/6));page=Math.min(page,pages);
+        const start=(page-1)*6,visible=items.slice(start,start+6);
+        rows.replaceChildren();
+        if(!visible.length){const tr=document.createElement('tr');tr.innerHTML='<td class="no-evidence" colspan="6">No evidence matches these filters.</td>';rows.append(tr)}
+        visible.forEach((item,index)=>{
+          const tr=document.createElement('tr');tr.className=`evidence-row row-${item.type.toLowerCase()} ${item.signal==='VERIFIED'?'is-verified':'is-threat'}`;
+          const typeClass=item.type.toLowerCase();
+          tr.innerHTML=`<td class="evidence-id">${item.id}</td><td><span class="evidence-type type-${typeClass}"><img class="report-icon" src="/report-assets/${icons[item.type]}" alt="">${item.type}</span></td><td class="finding-cell"><strong></strong><small></small></td><td><span class="evidence-signal ${item.signal==='VERIFIED'?'signal-verified':'signal-threat'}"><i></i>${item.signal}</span></td><td class="saved-time">${item.saved}</td><td><button class="open-evidence" type="button" aria-label="Open ${item.id}"><img class="report-icon" src="/report-assets/right.svg" alt=""></button></td>`;
+          tr.querySelector('.finding-cell strong').textContent=item.summary;tr.querySelector('.finding-cell small').textContent=item.source;
+          tr.querySelector('.open-evidence').addEventListener('click',()=>notify(`${item.id} selected.`));rows.append(tr);
+        });
+        document.querySelector('#evidence-range').textContent=`Showing ${items.length?start+1:0}–${Math.min(start+6,items.length)} of ${items.length} evidence items`;
+        renderPagination(pages);
+      };
+      filter.addEventListener('change',()=>{page=1;render()});
+      search.addEventListener('input',()=>{page=1;render()});
+      document.querySelector('#quick-search').addEventListener('input',event=>{search.value=event.target.value;page=1;render()});
+      document.querySelector('#pdf-toggle').addEventListener('change',event=>{document.querySelector('#output-format').textContent=`OUTPUT / ${event.target.checked?'PDF':'DATA'}`});
+      document.querySelector('#final-verdict').addEventListener('change',event=>{
+        const value=event.target.value;document.querySelector('#notes-status').textContent=value;
+        document.querySelector('#verdict-heading').textContent=value==='Working assessment'?'Assessment pending review':value;
+      });
+      document.querySelector('#investigator-notes').addEventListener('input',event=>{document.querySelector('#verdict-summary').textContent=event.target.value});
+      document.querySelector('#save-notes').addEventListener('click',()=>notify('Investigator notes saved.'));
+      document.querySelector('#save-evidence').addEventListener('click',()=>notify('Evidence is saved to DDS-2026-024.'));
+      document.querySelector('#print-report').addEventListener('click',()=>window.print());
+      document.querySelector('#export-data').addEventListener('click',()=>{
+        const scope=Object.fromEntries(scopes.map((item,index)=>[item,document.querySelectorAll('#scope-grid input')[index].checked]));
+        const data={case:{id:'DDS-2026-024',title:'Suspicious payroll email',status:'Active',created:'2026-11-09T09:42:00Z',investigator:'Alex Morgan'},evidence,investigatorNotes:document.querySelector('#investigator-notes').value,finalVerdict:document.querySelector('#final-verdict').value,reportScope:scope,exportedAt:new Date().toISOString()};
+        const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download='DDS-2026-024-case-report.json';link.click();URL.revokeObjectURL(url);notify('Report data exported.');
+      });
+      document.querySelectorAll('#scope-grid input').forEach((input,index)=>input.addEventListener('change',()=>{scopeState[scopes[index]]=input.checked}));
+      document.querySelector('#quick-search').addEventListener('keydown',event=>{if(event.key==='Enter'){event.preventDefault();search.focus()}});
+      document.addEventListener('keydown',event=>{if((event.metaKey||event.ctrlKey)&&event.key.toLowerCase()==='k'){event.preventDefault();document.querySelector('#quick-search').focus()}});
+      scopes.forEach(item=>{const label=document.createElement('label'),input=document.createElement('input'),icon=document.createElement('img');input.type='checkbox';input.checked=true;input.setAttribute('aria-label',item);icon.className='report-icon';icon.src='/report-assets/check.svg';icon.alt='';label.append(input,icon,document.createTextNode(item));document.querySelector('#scope-grid').append(label)});
+      render();
+    })();
+  </script>
+</body>
+</html>

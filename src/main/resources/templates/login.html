@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Digital Detective | Login</title><link rel="stylesheet" href="/auth-form.css"></head>
+<body><main class="auth-card">
+  <div class="brand"><span class="brand-mark">D</span><div><strong>DIGITAL DETECTIVE</strong><small>SECURE INVESTIGATOR ACCESS</small></div></div>
+  <p class="eyebrow">01 / AUTHENTICATION</p><h1>Welcome back</h1><p class="sub">Sign in to open your private investigation workspace.</p>
+  <p class="message" th:if="${error}" th:text="${error}"></p>
+  <p class="message success" th:if="${param.registered}">Registration successful. You can now sign in.</p>
+  <form th:action="@{/login}" method="post">
+    <label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="username" placeholder="name@example.com" required>
+    <label for="password">Password</label><input id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required>
+    <button type="submit">LOGIN TO WORKSPACE</button>
+  </form>
+  <div class="links"><a href="/">← Back to home</a><a href="/register">Create an account</a></div>
+  <div class="foot">PRIVATE SESSION · DIGITAL DETECTIVE SYSTEM</div>
+</main></body></html>

@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Analysis | Digital Detective</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+    <style>
+        .analysis-container {
+            max-width: 900px;
+            margin: 45px auto;
+            padding: 25px;
+        }
+
+        .analysis-card {
+            background: #111d32;
+            border: 1px solid #263751;
+            border-radius: 15px;
+            padding: 28px;
+            margin-top: 25px;
+        }
+
+        .analysis-card textarea {
+            width: 100%;
+            min-height: 200px;
+            box-sizing: border-box;
+            padding: 15px;
+            background: #0b1425;
+            color: white;
+            border: 1px solid #344761;
+            border-radius: 9px;
+            resize: vertical;
+        }
+
+        .analysis-card button {
+            margin-top: 18px;
+            padding: 13px 24px;
+            background: #3978f6;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .result-box {
+            margin-top: 25px;
+            padding: 20px;
+            background: #0b1425;
+            border: 1px solid #344761;
+            border-radius: 10px;
+            color: #75dfa4;
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+        }
+
+        .error { color: #ff8585; }
+        .back-link { color: #70a2ff; }
+    </style>
+</head>
+
+<body>
+
+<div class="analysis-container">
+
+    <h1>📧 Email Analysis</h1>
+
+    <p>Investigate suspicious emails and identify possible phishing warning signs.</p>
+
+    <div class="analysis-card">
+
+        <h2>Submit Email Content</h2>
+
+        <form th:action="@{/email-analysis}" method="post">
+
+            <textarea name="emailContent"
+                placeholder="Paste your email content here..."
+                th:text="${emailContent}"
+                required></textarea>
+
+            <p class="error" th:if="${error}"
+               th:text="${error}"></p>
+
+            <button type="submit">Analyze Email</button>
+
+        </form>
+
+        <div class="result-box" th:if="${analysisResult != null}">
+            <h3>Analysis Results</h3>
+            <p th:text="${analysisResult}"></p>
+        </div>
+
+    </div>
+
+    <p style="margin-top:25px;">
+        <a class="back-link" th:href="@{/dashboard}">
+            ← Back to Dashboard
+        </a>
+    </p>
+
+    <p style="color:#aab7ca; font-size:13px;">
+        Educational rule-based analysis only. Results are not proof
+        that an email is safe or malicious.
+    </p>
+
+</div>
+
+</body>
+</html>

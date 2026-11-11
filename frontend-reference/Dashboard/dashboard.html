@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#04080f">
+  <title>Digital Detective | Case Dashboard</title>
+  <link rel="stylesheet" href="./dashboard-style.css">
+</head>
+<body>
+  <main class="dashboard-shell min-h-screen bg-[#04080f] text-[#eaf6ff]">
+    <aside class="dashboard-sidebar">
+      <a class="sidebar-brand" href="#top" aria-label="Digital Detective home"><span class="brand-monogram">D</span><span class="brand-copy"><strong>DIGITAL DETECTIVE</strong><small>SYSTEM / WORKSPACE</small></span></a>
+      <p class="sidebar-section-label">INVESTIGATION</p>
+      <nav class="sidebar-nav" aria-label="Investigation navigation">
+        <a class="sidebar-link sidebar-link-active" href="#cases"><img class="dashboard-icon" src="./dashboard-assets/folder.svg" alt="">Cases<span class="sidebar-count">6</span></a>
+        <button class="sidebar-link" data-open-notice type="button"><img class="dashboard-icon" src="./dashboard-assets/plus.svg" alt="">New Investigation</button>
+        <a class="sidebar-link" href="#activity"><img class="dashboard-icon" src="./dashboard-assets/vault.svg" alt="">Evidence Vault</a>
+        <a class="sidebar-link" href="#activity"><img class="dashboard-icon" src="./dashboard-assets/report.svg" alt="">Reports</a>
+      </nav>
+      <section class="live-log" aria-label="Live system logs"><header><span>&gt;_ LIVE LOGS</span><small>STREAM</small></header><div class="log-viewport" aria-hidden="true"><div class="log-stream">
+        <span>[SYS_OK] Port 443 active...</span><span>[SCAN] Parsing incoming</span><span>       telemetry...</span><span>[NET] TLS handshake verified</span><span>[SYNC] Evidence index ready</span><span>[SYS_OK] Secure tunnel open</span><span>[SCAN] Analyzing packet flow</span><span>[NET] 12 endpoints connected</span><span>[HASH] Integrity verified</span><span>[SYNC] Telemetry buffered</span><span>[SYS_OK] No threats detected</span><span>[SCAN] Awaiting next packet</span>
+        <span>[SYS_OK] Port 443 active...</span><span>[SCAN] Parsing incoming</span><span>       telemetry...</span><span>[NET] TLS handshake verified</span><span>[SYNC] Evidence index ready</span><span>[SYS_OK] Secure tunnel open</span><span>[SCAN] Analyzing packet flow</span><span>[NET] 12 endpoints connected</span><span>[HASH] Integrity verified</span><span>[SYNC] Telemetry buffered</span><span>[SYS_OK] No threats detected</span><span>[SCAN] Awaiting next packet</span>
+      </div></div><footer>ENCRYPTED / TELEMETRY<span class="log-cursor">_</span></footer></section>
+      <aside class="evidence-tip"><strong>FOLLOW THE EVIDENCE</strong><p>Keep every finding linked<br>to its investigation case.</p><a href="#activity">Open evidence vault<img class="dashboard-icon" src="./dashboard-assets/arrow.svg" alt=""></a></aside>
+      <div class="sidebar-footer"><a href="#help"><img class="dashboard-icon" src="./dashboard-assets/help.svg" alt="">Help &amp; documentation</a><p><span></span>ALL SYSTEMS OPERATIONAL</p><small>DDS / SECURE WORKSPACE v.01</small></div>
+    </aside>
+
+    <section class="dashboard-workspace" id="top">
+      <header class="workspace-header">
+        <div class="breadcrumbs"><span>Workspace</span><b>/</b><strong>Cases</strong></div>
+        <label class="quick-search"><img class="dashboard-icon" src="./dashboard-assets/search.svg" alt=""><input id="case-search" type="search" placeholder="Quick Search cases, evidence..." aria-label="Search cases and evidence"><kbd>⌘ K</kbd></label>
+        <button class="profile-button" data-open-notice type="button"><strong>CyberTrace</strong><span>Digital investigator</span><img class="dashboard-icon" src="./dashboard-assets/chevron.svg" alt=""><small><img class="dashboard-icon" src="./dashboard-assets/led.svg" alt="">LIVE / ONLINE</small></button>
+        <button class="secure-session" data-open-notice type="button">SECURE SESSION</button>
+      </header>
+
+      <div class="dashboard-content">
+        <section class="overview-section">
+          <div class="overview-heading"><div><p class="eyebrow">INVESTIGATION WORKSPACE</p><h1>Case dashboard</h1><p class="overview-description">Track active investigations and keep your evidence connected.</p></div><button class="create-case" data-open-notice type="button"><img class="dashboard-icon" src="./dashboard-assets/plus.svg" alt="">Create Investigation Case</button></div>
+          <div class="metrics-grid">
+            <article class="metric-card"><span class="metric-title">Total cases</span><img class="dashboard-icon metric-led" src="./dashboard-assets/led.svg" alt=""><strong class="metric-value">24</strong><span class="metric-note">6 active · 18 closed</span><span class="metric-icon-surface"><img class="dashboard-icon" src="./dashboard-assets/folder.svg" alt=""></span><span class="metric-glow-line"></span></article>
+            <article class="metric-card"><span class="metric-title">Scanned content</span><img class="dashboard-icon metric-led" src="./dashboard-assets/led-cyan.svg" alt=""><strong class="metric-value">1,284</strong><span class="metric-note">Emails, URLs &amp; messages</span><span class="metric-icon-surface"><img class="dashboard-icon" src="./dashboard-assets/scan.svg" alt=""></span><span class="metric-glow-line"></span></article>
+            <article class="metric-card"><span class="metric-title">Saved evidence</span><img class="dashboard-icon metric-led" src="./dashboard-assets/led.svg" alt=""><strong class="metric-value">156</strong><span class="metric-note">Preserved across all cases</span><span class="metric-icon-surface"><img class="dashboard-icon" src="./dashboard-assets/vault-small.svg" alt=""></span><span class="traffic-label">TRAFFIC / LIVE</span><div class="traffic-chart"><span></span><span></span><span></span><div><img src="./dashboard-assets/waveform.svg" alt=""></div></div><span class="metric-glow-line"></span></article>
+          </div>
+        </section>
+
+        <section class="cases-section" id="cases">
+          <div class="cases-header"><div class="cases-heading"><h2>Active Cases</h2><span class="active-count">6</span><img class="dashboard-icon" src="./dashboard-assets/led.svg" alt=""></div><p>Your ongoing investigations, in one place.</p>
+            <div class="case-controls"><label class="select-control"><select id="case-filter" aria-label="Filter cases"><option value="all">All case types</option><option value="Active">Active</option><option value="In review">In review</option></select><img class="dashboard-icon" src="./dashboard-assets/chevron-small.svg" alt=""></label><label class="select-control select-sort"><select id="case-sort" aria-label="Sort cases"><option value="newest">Newest first</option><option value="oldest">Oldest first</option></select><img class="dashboard-icon" src="./dashboard-assets/chevron-small.svg" alt=""></label><button class="view-toggle selected" id="grid-view" type="button" aria-label="Grid view" aria-pressed="true"><img class="dashboard-icon" src="./dashboard-assets/grid.svg" alt=""></button><button class="view-toggle" id="list-view" type="button" aria-label="List view" aria-pressed="false"><img class="dashboard-icon" src="./dashboard-assets/list.svg" alt=""></button></div>
+          </div>
+          <div class="case-grid" id="case-grid">
+            <a class="case-card" href="#DDS-2026-024" data-status="Active" data-search="DDS-2026-024 Suspicious payroll email Email analysis"><span class="case-id">DDS-2026-024</span><span class="case-status status-active">Active</span><span class="case-title"><img class="dashboard-icon" src="./dashboard-assets/led.svg" alt="">Suspicious payroll email</span><span class="case-type">Email analysis</span><span class="case-date"><img class="dashboard-icon" src="./dashboard-assets/calendar.svg" alt="">Created 09 Nov 2026</span><span class="case-divider"></span><span class="case-evidence">18 evidence</span><span class="case-scanned">142 scanned</span><span class="case-arrow"><img class="dashboard-icon" src="./dashboard-assets/arrow-case.svg" alt=""></span></a>
+            <a class="case-card" href="#DDS-2026-023" data-status="In review" data-search="DDS-2026-023 Credential harvesting URL URL intelligence"><span class="case-id">DDS-2026-023</span><span class="case-status status-review">In review</span><span class="case-title"><img class="dashboard-icon" src="./dashboard-assets/led-cyan.svg" alt="">Credential harvesting URL</span><span class="case-type">URL intelligence</span><span class="case-date"><img class="dashboard-icon" src="./dashboard-assets/calendar.svg" alt="">Created 08 Nov 2026</span><span class="case-divider"></span><span class="case-evidence">12 evidence</span><span class="case-scanned">96 scanned</span><span class="case-arrow"><img class="dashboard-icon" src="./dashboard-assets/arrow-case.svg" alt=""></span></a>
+            <a class="case-card" href="#DDS-2026-022" data-status="Active" data-search="DDS-2026-022 Executive impersonation Message forensics"><span class="case-id">DDS-2026-022</span><span class="case-status status-active">Active</span><span class="case-title"><img class="dashboard-icon" src="./dashboard-assets/led.svg" alt="">Executive impersonation</span><span class="case-type">Message forensics</span><span class="case-date"><img class="dashboard-icon" src="./dashboard-assets/calendar.svg" alt="">Created 07 Nov 2026</span><span class="case-divider"></span><span class="case-evidence">9 evidence</span><span class="case-scanned">84 scanned</span><span class="case-arrow"><img class="dashboard-icon" src="./dashboard-assets/arrow-case.svg" alt=""></span></a>
+            <a class="case-card" href="#DDS-2026-021" data-status="Active" data-search="DDS-2026-021 Invoice redirection attempt Email analysis"><span class="case-id">DDS-2026-021</span><span class="case-status status-active">Active</span><span class="case-title"><img class="dashboard-icon" src="./dashboard-assets/led.svg" alt="">Invoice redirection attempt</span><span class="case-type">Email analysis</span><span class="case-date"><img class="dashboard-icon" src="./dashboard-assets/calendar.svg" alt="">Created 06 Nov 2026</span><span class="case-divider"></span><span class="case-evidence">21 evidence</span><span class="case-scanned">167 scanned</span><span class="case-arrow"><img class="dashboard-icon" src="./dashboard-assets/arrow-case.svg" alt=""></span></a>
+            <a class="case-card" href="#DDS-2026-020" data-status="In review" data-search="DDS-2026-020 Fraudulent support portal URL intelligence"><span class="case-id">DDS-2026-020</span><span class="case-status status-review">In review</span><span class="case-title"><img class="dashboard-icon" src="./dashboard-assets/led-cyan.svg" alt="">Fraudulent support portal</span><span class="case-type">URL intelligence</span><span class="case-date"><img class="dashboard-icon" src="./dashboard-assets/calendar.svg" alt="">Created 05 Nov 2026</span><span class="case-divider"></span><span class="case-evidence">15 evidence</span><span class="case-scanned">103 scanned</span><span class="case-arrow"><img class="dashboard-icon" src="./dashboard-assets/arrow-case.svg" alt=""></span></a>
+            <a class="case-card" href="#DDS-2026-019" data-status="Active" data-search="DDS-2026-019 Account recovery scam Message forensics"><span class="case-id">DDS-2026-019</span><span class="case-status status-active">Active</span><span class="case-title"><img class="dashboard-icon" src="./dashboard-assets/led.svg" alt="">Account recovery scam</span><span class="case-type">Message forensics</span><span class="case-date"><img class="dashboard-icon" src="./dashboard-assets/calendar.svg" alt="">Created 04 Nov 2026</span><span class="case-divider"></span><span class="case-evidence">8 evidence</span><span class="case-scanned">58 scanned</span><span class="case-arrow"><img class="dashboard-icon" src="./dashboard-assets/arrow-case.svg" alt=""></span></a>
+          </div>
+          <div class="cases-summary"><span id="cases-count">Showing 6 active cases</span><a href="#activity">View 18 closed cases</a></div>
+        </section>
+
+        <section class="activity-panel" id="activity"><header><h2>Recent activity</h2><span>Across your investigations</span></header>
+          <article class="activity-row"><span class="activity-icon"><img class="dashboard-icon" src="./dashboard-assets/vault-activity.svg" alt=""></span><div><strong>Evidence saved</strong><p>Email header preserved in Suspicious payroll email</p></div><code>DDS-2026-024</code><time>2 min ago</time></article>
+          <article class="activity-row"><span class="activity-icon"><img class="dashboard-icon" src="./dashboard-assets/scan-activity.svg" alt=""></span><div><strong>Analysis completed</strong><p>URL inspection finished for Credential harvesting URL</p></div><code>DDS-2026-023</code><time>18 min ago</time></article>
+          <article class="activity-row"><span class="activity-icon"><img class="dashboard-icon" src="./dashboard-assets/file.svg" alt=""></span><div><strong>Report generated</strong><p>Investigation summary prepared for Invoice redirection attempt</p></div><code>DDS-2026-021</code><time>42 min ago</time></article>
+        </section>
+        <footer class="workspace-footer"><span>PRIVATE WORKSPACE / EXAMPLE CASE DATA</span><span>Every trace tells a story.</span></footer>
+      </div>
+    </section>
+    <div class="notice-backdrop" id="notice" hidden><div class="notice-dialog" role="dialog" aria-modal="true" aria-labelledby="notice-title"><button id="notice-close" type="button" aria-label="Close dialog">×</button><p class="eyebrow">INVESTIGATION WORKSPACE</p><h2 id="notice-title">Workspace action</h2><p>This prototype is using example case data.</p><button class="create-case" id="notice-ok" type="button">Understood</button></div></div>
+  </main>
+  <script>
+    (() => {
+      const search = document.querySelector('#case-search');
+      const filter = document.querySelector('#case-filter');
+      const sort = document.querySelector('#case-sort');
+      const grid = document.querySelector('#case-grid');
+      const count = document.querySelector('#cases-count');
+      const gridButton = document.querySelector('#grid-view');
+      const listButton = document.querySelector('#list-view');
+      const cards = [...grid.querySelectorAll('.case-card')];
+      const updateCases = () => {
+        const term = search.value.trim().toLowerCase();
+        const visible = cards.filter(card => {
+          const matchesStatus = filter.value === 'all' || card.dataset.status === filter.value;
+          const matchesSearch = !term || card.dataset.search.toLowerCase().includes(term);
+          card.hidden = !(matchesStatus && matchesSearch);
+          return !card.hidden;
+        });
+        cards.forEach(card => grid.append(card));
+        if (sort.value === 'oldest') visible.reverse().forEach(card => grid.append(card));
+        count.textContent = `Showing ${visible.length} active cases`;
+      };
+      [search, filter, sort].forEach(control => control.addEventListener(control === search ? 'input' : 'change', updateCases));
+      const setView = mode => {
+        const isList = mode === 'list';
+        grid.classList.toggle('case-grid-list', isList);
+        gridButton.classList.toggle('selected', !isList);
+        listButton.classList.toggle('selected', isList);
+        gridButton.setAttribute('aria-pressed', String(!isList));
+        listButton.setAttribute('aria-pressed', String(isList));
+      };
+      gridButton.addEventListener('click', () => setView('grid'));
+      listButton.addEventListener('click', () => setView('list'));
+      const notice = document.querySelector('#notice');
+      const closeNotice = () => { notice.hidden = true; };
+      document.querySelectorAll('[data-open-notice]').forEach(button => button.addEventListener('click', () => { notice.hidden = false; document.querySelector('#notice-ok').focus(); }));
+      document.querySelector('#notice-close').addEventListener('click', closeNotice);
+      document.querySelector('#notice-ok').addEventListener('click', closeNotice);
+      notice.addEventListener('click', event => { if (event.target === notice) closeNotice(); });
+      document.addEventListener('keydown', event => {
+        if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') { event.preventDefault(); search.focus(); }
+        if (event.key === 'Escape') closeNotice();
+      });
+    })();
+  </script>
+</body>
+</html>

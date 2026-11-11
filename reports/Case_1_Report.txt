@@ -1,0 +1,57 @@
+DIGITAL DETECTIVE INVESTIGATION REPORT
+=======================================
+
+Case ID: 1
+Title: Suspicious Email Investigation.
+Description: This case investigates a suspicious email received by a user. The email is examined for warning signs such as an unknown sender, misleading links, urgent language, and requests for personal information. The purpose is to identify potential phishing indicators and record the analysis results.
+Status: Open
+
+SAVED EVIDENCE
+--------------
+Type: Email
+Content: From: security-alert@example.com
+
+Subject: Urgent Account Verification
+
+Message: Your account requires immediate verification. 
+Please click the link below to verify your account.
+Added: 2026-11-08 12:51:07
+
+ANALYSIS RESULTS
+----------------
+Type: Email
+Result: EMAIL ANALYSIS
+
+- Requests sensitive login information.
+- Uses urgent language.
+
+Note: This is an educational rule-based analysis.
+Date: 2026-11-09 14:12:28
+
+Type: URL
+Result: URL ANALYSIS
+
+- URL does not use HTTPS.
+- Contains words that may need closer inspection.
+
+Note: This is an educational rule-based analysis.
+Date: 2026-11-09 14:14:44
+
+Type: Message
+Result: MESSAGE ANALYSIS
+
+- Requests a money transfer or payment.
+- Contains a prize or winning claim.
+
+Note: This is an educational rule-based analysis.
+Date: 2026-11-09 14:15:26
+
+Type: Email
+Result: EMAIL ANALYSIS
+
+- Requests sensitive login information.
+- Uses urgent language.
+
+Note: This is an educational rule-based analysis.
+Date: 2026-11-09 14:21:04
+

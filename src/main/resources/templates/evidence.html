@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Evidence | Digital Detective</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<main style="max-width:850px;margin:45px auto;padding:25px;">
+    <h1>Evidence Management</h1>
+    <p>Add and view evidence associated with your investigation cases.</p>
+
+    <p th:if="${param.added}" style="color:#65dba0;">Evidence added successfully!</p>
+    <p th:if="${param.error}" style="color:#ff7777;">Please check your selected case and try again.</p>
+    <p th:if="${error}" th:text="${error}" style="color:#ff7777;"></p>
+
+    <section style="padding:25px;background:#17243b;border-radius:15px;">
+        <h2>Add Evidence</h2>
+
+        <form method="post" th:action="@{/evidence/add}">
+            <label>Investigation Case</label>
+            <select name="caseId" required style="width:100%;padding:12px;margin:12px 0;">
+                <option value="">Choose a case</option>
+                <option th:each="entry : ${cases}"
+                        th:value="${entry.key}"
+                        th:text="${entry.value}"
+                        th:selected="${selectedCase != null and selectedCase == entry.key}">
+                </option>
+            </select>
+
+            <label>Evidence Type</label>
+            <select name="evidenceType" required style="width:100%;padding:12px;margin:12px 0;">
+                <option value="Email">Email</option>
+                <option value="URL">URL</option>
+                <option value="Message">Message</option>
+                <option value="Screenshot">Screenshot Reference</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <label>Evidence Details</label>
+            <textarea name="content" rows="5" required
+                      placeholder="Enter evidence details..."
+                      style="width:100%;padding:12px;margin:12px 0;"></textarea>
+
+            <button type="submit" class="primary-button">Save Evidence</button>
+        </form>
+    </section>
+
+    <section style="margin-top:25px;padding:25px;background:#17243b;border-radius:15px;">
+        <h2>View Evidence</h2>
+
+        <form method="get" th:action="@{/evidence}">
+            <select name="caseId" required style="padding:12px;">
+                <option value="">Choose a case</option>
+                <option th:each="entry : ${cases}"
+                        th:value="${entry.key}"
+                        th:text="${entry.value}"
+                        th:selected="${selectedCase != null and selectedCase == entry.key}">
+                </option>
+            </select>
+            <button type="submit" class="primary-button">View</button>
+        </form>
+
+        <div th:if="${evidenceList != null}">
+            <p th:if="${#lists.isEmpty(evidenceList)}">No evidence saved for this case yet.</p>
+            <article th:each="item : ${evidenceList}"
+                     style="padding:15px;margin-top:12px;background:#24344e;border-radius:10px;">
+                <pre th:text="${item}" style="white-space:pre-wrap;"></pre>
+            </article>
+        </div>
+    </section>
+
+    <p><a th:href="@{/dashboard}">Back to Dashboard</a></p>
+</main>
+</body>
+</html>
