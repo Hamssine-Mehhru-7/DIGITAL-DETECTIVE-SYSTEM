@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Risk Assessment | Digital Detective</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<main style="max-width:850px;margin:45px auto;padding:25px;">
+    <h1>Risk Assessment</h1>
+    <p>Evaluate suspicious content and save the assessment to an investigation.</p>
+
+    <p th:if="${error}" th:text="${error}" style="color:#ff7777;"></p>
+
+    <form method="post" th:action="@{/risk-assessment/analyze}"
+          style="padding:25px;border-radius:15px;background:#17243b;">
+
+        <label>Select Investigation Case</label>
+        <select name="caseId" required style="width:100%;padding:12px;margin:12px 0;">
+            <option value="">Choose a case</option>
+            <option th:each="entry : ${cases}"
+                    th:value="${entry.key}"
+                    th:text="${entry.value}"
+                    th:selected="${selectedCase != null and selectedCase == entry.key}">
+            </option>
+        </select>
+
+        <label>Content to assess</label>
+        <textarea name="content" rows="8" required
+                  placeholder="Paste suspicious email, message or other content..."
+                  style="width:100%;padding:12px;margin:12px 0;"></textarea>
+
+        <button type="submit" class="primary-button">Assess Risk</button>
+    </form>
+
+    <section th:if="${riskResult}" style="margin-top:25px;padding:25px;background:#17243b;border-radius:15px;">
+        <h2>Assessment Result</h2>
+        <pre th:text="${riskResult}" style="white-space:pre-wrap;"></pre>
+    </section>
+
+    <p><a th:href="@{/dashboard}">Back to Dashboard</a></p>
+</main>
+</body>
+</html>
